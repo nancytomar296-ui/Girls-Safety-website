@@ -1,12 +1,15 @@
 
-const CACHE_NAME = "girls-safety-v1";
+
+const CACHE_NAME = "girls-safety-v2";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./style.css",
   "./script.js",
-  "./manifest.json"
+  "./manifest.json",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -30,7 +33,7 @@ self.addEventListener("activate", (event) => {
     )
   );
 
-  self.clients.claim();
+  return self.clients.claim();
 });
 
 self.addEventListener("fetch", (event) => {
