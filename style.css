@@ -792,3 +792,29 @@ body.dark-mode {
     font-size: 1.05rem;
   }
 }
+
+.install-btn {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 15px auto;
+  padding: 14px 18px;
+  background: #e84393;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px #e8439340;
+}
+
+.install-btn[hidden] {
+  display: none;
+}
+
+#installMessage {
+  text-align: center;
+  color: #8b3a70;
+  font-size: 14px;
+}
