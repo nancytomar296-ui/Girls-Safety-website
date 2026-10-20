@@ -1,23 +1,46 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Girls Safety | Safe Today, Strong Tomorrow</title>
 
-<link rel="manifest" href="manifest.json">
+  <meta name="description" content="Girls Safety provides helpful safety tools, location support and trusted emergency contacts.">
+  <meta name="theme-color" content="#e84393">
 
-<meta name="theme-color" content="#e84393">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Icons -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .install-app-area {
+      margin: 18px 0 12px;
+    }
+
+    .install-app-btn {
+      background: #e84393;
+      color: white;
+      border: 0;
+      border-radius: 30px;
+      padding: 13px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      box-shadow: 0 5px 15px #e8439330;
+    }
+
+    .install-app-btn:hover {
+      background: #ce287b;
+      color: white;
+    }
+
+    .install-help {
+      font-size: 13px;
+      color: #8b4770;
+      margin-top: 9px;
+    }
+  </style>
 </head>
 
 <body>
@@ -43,11 +66,13 @@
           <li class="nav-item"><a class="nav-link" href="#safety">Safety</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
           <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+
           <li class="nav-item ms-lg-3">
             <a class="btn btn-danger rounded-pill px-3" href="tel:112">
               <i class="bi bi-telephone-fill"></i> Emergency Help
             </a>
           </li>
+
           <li class="nav-item ms-lg-2">
             <button class="btn theme-toggle" id="themeToggle"
               type="button" aria-label="Toggle dark mode">
@@ -59,11 +84,13 @@
     </div>
   </nav>
 
-  <!-- Hero -->
   <main>
+
+    <!-- Hero -->
     <section class="hero-section" id="home">
       <div class="container">
         <div class="row align-items-center g-4">
+
           <div class="col-lg-6 hero-copy">
             <span class="hero-label">
               <i class="bi bi-heart-fill"></i>
@@ -83,11 +110,23 @@
               <small>Emergency Help</small>
             </button>
 
-
-
             <p class="safety-note" id="status" role="status" aria-live="polite">
               You are in normal mode.
             </p>
+
+            <!-- Install App -->
+            <div class="install-app-area">
+              <button type="button" id="installBtn"
+                class="btn install-app-btn">
+                <i class="bi bi-download"></i>
+                Install Girls Safety App
+              </button>
+
+              <p id="installMessage" class="install-help"
+                role="status" aria-live="polite">
+                Install the app on your phone for easy access.
+              </p>
+            </div>
           </div>
 
           <div class="col-lg-6">
@@ -95,19 +134,20 @@
               <img
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85"
                 alt="Confident young woman"
-                class="hero-image"
-              >
+                class="hero-image">
+
               <div class="image-message">
                 <i class="bi bi-heart-fill"></i>
                 <span>Be Safe.<br>Be Strong.<br>Be You.</span>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Quick Actions -->
+    <!-- Safety Toolkit -->
     <section class="quick-section" id="safety">
       <div class="container">
         <div class="section-heading">
@@ -117,12 +157,14 @@
         </div>
 
         <div class="row g-4">
+
           <div class="col-12 col-sm-6 col-lg-3">
             <div class="feature-card pink-card">
               <div class="feature-icon"><i class="bi bi-geo-alt-fill"></i></div>
               <h3>My Location</h3>
               <p>Check your current location and open it on a map.</p>
-              <button class="btn feature-btn pink-btn w-100" id="locationButton">
+              <button class="btn feature-btn pink-btn w-100"
+                id="locationButton" type="button">
                 Get Location <i class="bi bi-arrow-right"></i>
               </button>
             </div>
@@ -144,7 +186,8 @@
               <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
               <h3>Safety Check-In</h3>
               <p>Update your status when you are safe.</p>
-              <button class="btn feature-btn green-btn w-100" id="safeButton">
+              <button class="btn feature-btn green-btn w-100"
+                id="safeButton" type="button">
                 I Am Safe <i class="bi bi-check-circle"></i>
               </button>
             </div>
@@ -160,6 +203,7 @@
               </a>
             </div>
           </div>
+
         </div>
 
         <div class="location-result" id="locationResult" aria-live="polite">
@@ -220,7 +264,7 @@
       </div>
     </section>
 
-    <!-- Contacts -->
+    <!-- Trusted Contacts -->
     <section class="contacts-section" id="contacts">
       <div class="container">
         <div class="section-heading">
@@ -264,6 +308,7 @@
                 <h3><i class="bi bi-bookmark-heart-fill"></i> Your Saved Contacts</h3>
                 <span class="contact-count" id="contactCount">0 contacts</span>
               </div>
+
               <div id="contactList" class="contact-list">
                 <p class="empty-message">No contacts added yet. Add someone you trust.</p>
               </div>
@@ -279,6 +324,7 @@
         <div class="about-heart"><i class="bi bi-heart-fill"></i></div>
         <h2>You are not alone.</h2>
         <p>Stay aware • Stay safe • Stay empowered</p>
+
         <div class="about-values">
           <span><i class="bi bi-shield-check"></i> Safety</span>
           <span><i class="bi bi-people-fill"></i> Connection</span>
@@ -286,8 +332,8 @@
         </div>
       </div>
     </section>
-  </main>
 
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -299,6 +345,7 @@
           </a>
           <p>Safe Today • Strong Tomorrow</p>
         </div>
+
         <div class="col-md-6 text-md-end footer-links">
           <a href="#home">Home</a>
           <a href="#safety">Safety</a>
@@ -306,17 +353,80 @@
           <a href="#about">About</a>
         </div>
       </div>
+
       <hr>
+
       <p class="footer-note">
         Student project prototype — not a replacement for emergency services.
       </p>
     </div>
   </footer>
 
-  <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom JavaScript -->
   <script src="script.js"></script>
+
+  <!-- Install App Logic -->
+  <script>
+    (() => {
+      let deferredInstallPrompt = null;
+
+      const installButton = document.getElementById("installBtn");
+      const installMessage = document.getElementById("installMessage");
+
+      if (!installButton || !installMessage) return;
+
+      const isInstalled = () =>
+        window.matchMedia("(display-mode: standalone)").matches ||
+        window.navigator.standalone === true;
+
+      function showInstallInstructions() {
+        installMessage.textContent =
+          "Android: open Chrome menu (⋮) and choose Install app or Add to Home screen. iPhone: use Safari Share > Add to Home Screen.";
+      }
+
+      if (isInstalled()) {
+        installButton.hidden = true;
+        installMessage.textContent = "Girls Safety is already open as an app.";
+      }
+
+      window.addEventListener("beforeinstallprompt", (event) => {
+        event.preventDefault();
+        deferredInstallPrompt = event;
+      });
+
+      installButton.addEventListener("click", async () => {
+        if (isInstalled()) {
+          installMessage.textContent = "Girls Safety is already installed.";
+          installButton.hidden = true;
+          return;
+        }
+
+        if (!deferredInstallPrompt) {
+          showInstallInstructions();
+          return;
+        }
+
+        deferredInstallPrompt.prompt();
+
+        const result = await deferredInstallPrompt.userChoice;
+
+        if (result.outcome === "accepted") {
+          installMessage.textContent =
+            "Installation accepted. Follow your browser's instructions.";
+        } else {
+          installMessage.textContent =
+            "Installation cancelled. You can try again from the browser menu.";
+        }
+
+        deferredInstallPrompt = null;
+      });
+
+      window.addEventListener("appinstalled", () => {
+        installButton.hidden = true;
+        installMessage.textContent = "Girls Safety was installed successfully!";
+      });
+    })();
+  </script>
+
 </body>
 </html>
