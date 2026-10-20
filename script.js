@@ -322,3 +322,45 @@ if ("serviceWorker" in navigator) {
       });
   });
 }
+
+let installPrompt;
+
+const installBtn = document.getElementById("installBtn");
+const installMessage = document.getElementById("installMessage");
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  installPrompt = event;
+
+  if (installBtn) {
+    installBtn.hidden = false;
+  }
+});
+
+if (installBtn) {
+  installBtn.addEventListener("click", async () => {
+    if (installPrompt) {
+      installPrompt.prompt();
+
+      const result = await installPrompt.userChoice;
+
+      installMessage.textContent =
+        result.outcome === "accepted"
+          ? "Thank you for installing Girls Safety! 💗"
+          : "You can install the app whenever you are ready.";
+
+      installPrompt = null;
+      installBtn.hidden = true;
+    } else {
+      installMessage.textContent =
+        "To install, open your browser menu and select Install app or Add to Home screen.";
+    }
+  });
+}
+
+window.addEventListener("appinstalled", () => {
+  if (installBtn) installBtn.hidden = true;
+  if (installMessage) {
+    installMessage.textContent = "Girls Safety is installed! 💗";
+  }
+});
